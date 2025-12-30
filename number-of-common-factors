@@ -1,0 +1,24 @@
+int gcd(int a, int b) {
+    while (b != 0) {
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+
+int commonFactors(int a, int b) {
+    int g = gcd(a, b);
+    int count = 0;
+
+    for (int i = 1; i * i <= g; i++) {
+        if (g % i == 0) {
+            if (i * i == g)
+                count++;
+            else
+                count += 2;
+        }
+    }
+
+    return count;
+}
